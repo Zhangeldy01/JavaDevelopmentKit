@@ -8,7 +8,7 @@ import java.util.Objects;
 * и содержать элементы одного типа по парно.
  */
 public class CompareArr {
-    public static <T> boolean compareArrays(int[] arrayA, int[] arrayB){
+    public static <T> boolean compareArrays(T[] arrayA, T[] arrayB){
         if (arrayA == null) {
             throw new NullPointerException("arrayA");
         }
@@ -22,6 +22,10 @@ public class CompareArr {
             if (!Objects.equals(arrayA[i], arrayB[i])) {
                 return false;
             }
+            // 2 вариант записи if
+            // if(!arrayA[i].getClass().equals(arrayB[i].getClass())){
+            // return false;
+            // }
         }
         return true;
     }

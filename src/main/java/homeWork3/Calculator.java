@@ -77,6 +77,9 @@ public class Calculator {
     }
 
     public static <T extends Number, V extends Number> Number divide(T a, V b){
+        if(b.doubleValue() == 0) {
+            throw new ArithmeticException(("Деление на ноль не допускается"));
+        }
         return new Number() {
             @Override
             public int intValue() {

@@ -31,6 +31,8 @@ class Task1{
         System.out.printf("Integer 15 + Float 29.159f = %s as Float\n", result.floatValue());
         result = Calculator.multiply(Double.valueOf( 32.1), Short.valueOf((short) 568));
         System.out.printf("Double 32.1 * Short 568 = %s as Double\n", result.doubleValue());
+        // result = Calculator.divide(Float.valueOf( 42.6f), Integer.valueOf( 0));
+        // System.out.printf("Float 42.6 / Integer 0 = %s as Integer\n", result.intValue());
 
     }
 }
@@ -44,13 +46,13 @@ class Task2{
         int length = 3; // длина массива
         Random random = new Random();
 
-        int[] arrayA = new int[length];
+        Integer[] arrayA = new Integer[length];
         for (int i = 0; i < length; i++) {
             // заполняем каждый элемент случайным числом от 0 до 2
             arrayA[i] = random.nextInt(3);
         }
 
-        int[] arrayB = new int[length];
+        Integer[] arrayB = new Integer[length];
         for (int j = 0; j < length; j++) {
             // заполняем каждый элемент случайным числом от 0 до 2
             arrayB[j] = random.nextInt(3);
