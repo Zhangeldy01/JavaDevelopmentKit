@@ -2,3 +2,5 @@ Ivan Ivanovich: Привет!
 Гурд: И тебе привет!
 Ivan Ivanovich: Проверка связи
 Гурд: Ок
+Ivan Ivanovich: Hi, pal!
+Duck: Good day!
