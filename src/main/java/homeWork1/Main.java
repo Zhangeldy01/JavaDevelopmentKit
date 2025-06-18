@@ -5,8 +5,8 @@ import homeWork1.server.ServerWindow;
 
 public class Main {
     public static void main(String[] args){
-        ServerWindow serverWindow = new ServerWindow(); // объект сервера
-        new ClientGUI(serverWindow); // объект сервера передаем 2-м клиентским приложения для того чтобы они могли общатся между собой
+        ServerWindow serverWindow = new ServerWindow(); // Объект сервера
+        new ClientGUI(serverWindow); // объект сервера передаем 2-м клиентским приложениям для того, чтобы они могли общаться между собой
         new ClientGUI(serverWindow);
     }
 }

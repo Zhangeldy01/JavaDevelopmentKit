@@ -1,2 +1,5 @@
 Micky Mouse: Hi!
 Micky Mouse: How are you?
+Micky Mouse: It's Ok
+Micky Mouse: Hi, Duck
+Duck: Hi, Mouse

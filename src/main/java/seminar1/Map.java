@@ -163,11 +163,11 @@ public class Map extends JPanel {
 
         // отрисовка игрового поля
         g.setColor(Color.BLACK);
-        for (int h = 0; h < fieldSizeX; h++) {
+        for (int h = 0; h <= fieldSizeX; h++) { // рисует гооризонтальные линии
             int y = h * cellHeight;
             g.drawLine(0, y, width, y);
         }
-        for (int w = 0; w < fieldSizeX; w++) {
+        for (int w = 0; w <= fieldSizeX; w++) { // рисует вертикальные линии
             int x = w * cellWidth;
             g.drawLine(x, 0, x, height);
         }
@@ -180,13 +180,15 @@ public class Map extends JPanel {
                 }
                 if (field[y][x] == HUMAN_DOT) {
                     // drawCross(g, x, y);
+                    g.setColor(Color.RED);
                     g.drawLine(x * cellWidth + PADDING, y * cellHeight + PADDING,
                             (x + 1) * cellWidth - PADDING, (y + 1) * cellHeight - PADDING);
                     g.drawLine(x * cellWidth + PADDING, (y + 1) * cellHeight - PADDING,
                             (x + 1) * cellWidth - PADDING, y * cellHeight + PADDING);
                 } else if (field[y][x] == AI_DOT) {
                     // drawCircle(g, x, y);
-                    g.drawOval(x * cellWidth + PADDING, y * cellHeight + PADDING,
+                    g.setColor(Color.BLUE);
+                    g.fillOval(x * cellWidth + PADDING, y * cellHeight + PADDING,
                             cellWidth - PADDING * 2, cellHeight - PADDING * 2);
                 } else {
                     throw new RuntimeException("unchecked value " + field[y][x] +
