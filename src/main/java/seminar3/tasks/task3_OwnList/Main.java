@@ -1,8 +1,4 @@
-package seminar3.tasks.task3;
-
-import seminar3.tasks.task2.MyCollection;
-
-import java.awt.event.MouseAdapter;
+package seminar3.tasks.task3_OwnList;
 
 /*
 Написать итератор по массиву. Итератор - это объект, осуществляющий движение по коллекциям любого типа,

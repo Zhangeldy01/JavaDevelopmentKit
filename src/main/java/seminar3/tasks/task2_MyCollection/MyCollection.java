@@ -1,4 +1,4 @@
-package seminar3.tasks.task2;
+package seminar3.tasks.task2_MyCollection;
 
 public class MyCollection<T> {
     private Object[] arr;

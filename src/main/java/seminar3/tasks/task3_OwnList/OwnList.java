@@ -1,4 +1,4 @@
-package seminar3.tasks.task3;
+package seminar3.tasks.task3_OwnList;
 
 import java.util.*;
 
