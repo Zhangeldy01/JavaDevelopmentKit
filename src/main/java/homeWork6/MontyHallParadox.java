@@ -1,8 +1,8 @@
 package homeWork6;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.HashMap; // Импорт класса HashMap для создания карты (словаря)
+import java.util.Map; // Импорт интерфейса Map для работы с картами
+import java.util.Random; // Импорт класса Random для генерации случайных чисел
 
 /*
 В качестве задачи предлагаю вам реализовать код для демонстрации парадокса Монти Холла (Парадокс Монти Холла — Википедия)
@@ -23,51 +23,61 @@ import java.util.Random;
 Затем мы выводим общую статистику побед и поражений, а также результаты для каждого шага теста.
 */
 
-public class MontyHallParadox {
+/**
+ * Класс MontyHallParadox моделирует и демонстрирует парадокс Монти Холла.
+ * Парадокс показывает, что смена выбора двери увеличивает вероятность выигрыша.
+ */
+class MontyHallParadox {
+    /**
+     * Основной метод программы.
+     *
+     * @param args Аргументы командной строки (не используются).
+     */
     public static void main(String[] args) {
-        int numTests = 1000; // Количество тестов
+        int numTests = 1000; // Количество тестов, проводимых для оценки вероятности выигрыша/проигрыша
 
-        Map<Integer, String> results = new HashMap<>(); // Хранение результатов
+        Map<Integer, String> results = new HashMap<>(); // Создание карты для хранения результатов каждого теста. Ключ - номер теста, значение - "Выигрыш" или "Проигрыш"
 
-        int wins = 0; // Количество побед
-        int losses = 0; // Количество поражений
+        int wins = 0; // Счетчик побед
+        int losses = 0; // Счетчик поражений
 
-        Random random = new Random();
+        Random random = new Random(); // Создание объекта Random для генерации случайных чисел
 
-        for (int i = 1; i <= numTests; i++) {
-            int prizeDoor = random.nextInt(3) + 1; // Выбор случайной двери с призом
-            int chosenDoor = random.nextInt(3) + 1; // Выбор случайной двери игроком
+        for (int i = 1; i <= numTests; i++) { // Цикл, повторяющийся numTests раз, каждый раз моделируя игру
+            int prizeDoor = random.nextInt(3) + 1; // Случайный выбор двери, за которой находится приз (1, 2 или 3)
+            int chosenDoor = random.nextInt(3) + 1; // Случайный выбор двери игроком (1, 2 или 3)
 
             int openedDoor; // Дверь, которую открывает ведущий
 
             do {
-                openedDoor = random.nextInt(3) + 1;
-            } while (openedDoor == prizeDoor || openedDoor == chosenDoor);
+                openedDoor = random.nextInt(3) + 1; // Случайный выбор двери для открытия ведущим (1, 2 или 3)
+            } while (openedDoor == prizeDoor || openedDoor == chosenDoor); // Ведущий не может открыть дверь с призом или дверь, выбранную игроком
 
-            int switchDoor; // Дверь, на которую игрок переключается
+            int switchDoor; // Дверь, на которую игрок меняет свой выбор
 
             do {
-                switchDoor = random.nextInt(3) + 1;
-            } while (switchDoor == chosenDoor || switchDoor == openedDoor);
+                switchDoor = random.nextInt(3) + 1; // Случайный выбор двери для смены выбора (1, 2 или 3)
+            } while (switchDoor == chosenDoor || switchDoor == openedDoor); // Игрок не может сменить выбор на свою первоначальную дверь или открытую ведущим
 
-            if (switchDoor == prizeDoor) {
-                wins++;
-                results.put(i, "Выигрыш");
-            } else {
-                losses++;
-                results.put(i, "Проигрыш");
+            if (switchDoor == prizeDoor) { // Если дверь, на которую сменили выбор, содержит приз
+                wins++; // Увеличение счетчика побед
+                results.put(i, "Выигрыш"); // Запись результата в карту
+            } else { // Если дверь, на которую сменили выбор, не содержит приз
+                losses++; // Увеличение счетчика поражений
+                results.put(i, "Проигрыш"); // Запись результата в карту
             }
         }
 
-        System.out.println("Количество побед: " + wins);
-        System.out.println("Количество поражений: " + losses);
+        System.out.println("Количество побед: " + wins); // Вывод общего количества побед
+        System.out.println("Количество поражений: " + losses); // Вывод общего количества поражений
 
         // Вывод результатов для каждого шага теста
-        for (Map.Entry<Integer, String> entry : results.entrySet()) {
-            System.out.println("Step " + entry.getKey() + ": " + entry.getValue());
+        for (Map.Entry<Integer, String> entry : results.entrySet()) { // Перебор всех записей в карте результатов
+            System.out.println("Step " + entry.getKey() + ": " + entry.getValue()); // Вывод номера шага и результат (Выигрыш или Проигрыш)
         }
     }
 }
+
 
 
 
